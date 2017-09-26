@@ -1,0 +1,17 @@
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\bin\Debug\KheperaMapGenerator.exe.config
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.csprojResolveAssemblyReference.cache
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.Properties.Resources.resources
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.csproj.GenerateResource.Cache
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\bin\Debug\KheperaMapGenerator.exe
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\bin\Debug\KheperaMapGenerator.pdb
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\bin\Debug\SimpleWifi.dll
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\bin\Debug\Interop.AcroPDFLib.dll
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\bin\Debug\AxInterop.AcroPDFLib.dll
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\Interop.AcroPDFLib.dll
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\AxInterop.AcroPDFLib.dll
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.csproj.ResolveComReference.cache
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.MainApplication.resources
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.ApManager.resources
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.csproj.CoreCompileInputs.cache
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.exe
+C:\Users\Gumiś\Desktop\Studia\Platforma .NET\Laboratorium\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.pdb
