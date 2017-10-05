@@ -43,7 +43,7 @@
             this.DownArrow = new System.Windows.Forms.Button();
             this.LeftArrow = new System.Windows.Forms.Button();
             this.connectApButton = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.connetClientBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.generatedMap)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -188,14 +188,16 @@
             this.connectApButton.UseVisualStyleBackColor = true;
             this.connectApButton.Click += new System.EventHandler(this.connectApButton_Click);
             // 
-            // button7
+            // connetClientBtn
             // 
-            this.button7.Location = new System.Drawing.Point(44, 175);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(405, 52);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            this.connetClientBtn.Enabled = false;
+            this.connetClientBtn.Location = new System.Drawing.Point(44, 175);
+            this.connetClientBtn.Name = "connetClientBtn";
+            this.connetClientBtn.Size = new System.Drawing.Size(405, 52);
+            this.connetClientBtn.TabIndex = 10;
+            this.connetClientBtn.Text = "Connect to client";
+            this.connetClientBtn.UseVisualStyleBackColor = true;
+            this.connetClientBtn.Click += new System.EventHandler(this.connetClientBtn_Click);
             // 
             // MainApplication
             // 
@@ -204,7 +206,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1002, 717);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.connetClientBtn);
             this.Controls.Add(this.connectApButton);
             this.Controls.Add(this.LeftArrow);
             this.Controls.Add(this.DownArrow);
@@ -243,11 +245,11 @@
         private System.Windows.Forms.Button Reset;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button connectApButton;
-        private System.Windows.Forms.Button button7;
         public System.Windows.Forms.Button UpArrow;
         public System.Windows.Forms.Button RightArrow;
         public System.Windows.Forms.Button DownArrow;
         public System.Windows.Forms.Button LeftArrow;
+        public System.Windows.Forms.Button connetClientBtn;
     }
 }
 

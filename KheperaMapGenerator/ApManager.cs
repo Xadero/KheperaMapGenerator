@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using SimpleWifi;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
 
 namespace KheperaMapGenerator
 {
@@ -58,14 +60,15 @@ namespace KheperaMapGenerator
 
                 if (checAuthRequest(ap, passwordTb.Text))
                 {
-                    MessageBox.Show("You connected succefully /nto the network: " + ap.Name);
+                    MessageBox.Show("You connected succefully to the network: " + ap.Name);
                     connectionStatus = true;
-                    Dispose();
+                    Dispose(); 
                 }
                 else
                 {
                     MessageBox.Show("Connectio failed");
                 }
+                getNetworkIP();
             }
         }
         private bool checAuthRequest(AccessPoint ap, string password)
@@ -82,6 +85,23 @@ namespace KheperaMapGenerator
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public string getNetworkIP()
+        {
+            string ipAddress = string.Empty;
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    MessageBox.Show(ip.ToString());
+                    ipAddress = ip.ToString();
+                    return ip.ToString();
+                }
+            }
+            return ipAddress;
+            throw new Exception("Local IP Address Not Found!");
         }
     }
 }

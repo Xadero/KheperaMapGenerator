@@ -17,6 +17,7 @@ namespace KheperaMapGenerator
     {
 
         static ApManager wifi = new ApManager();
+        static ClientManager client = new ClientManager();
         public MainApplication()
         {
             InitializeComponent();
@@ -70,6 +71,7 @@ namespace KheperaMapGenerator
                 LeftArrow.Enabled = true;
                 DownArrow.Enabled = true;
                 RightArrow.Enabled = true;
+                connetClientBtn.Enabled = true;
             }
         }
 
@@ -81,6 +83,11 @@ namespace KheperaMapGenerator
         private void MainApplication_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void connetClientBtn_Click(object sender, EventArgs e)
+        {
+            client.ShowDialog();
         }
     }
 }

@@ -32,12 +32,12 @@
             this.AP_Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SignalStr_Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.apSearchButton = new System.Windows.Forms.Button();
-            this.passwordTb = new System.Windows.Forms.TextBox();
-            this.SsidLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.connectButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SsidLabel = new System.Windows.Forms.Label();
+            this.passwordTb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // apList
@@ -74,41 +74,16 @@
             this.apSearchButton.UseVisualStyleBackColor = true;
             this.apSearchButton.Click += new System.EventHandler(this.apSearchButton_Click);
             // 
-            // passwordTb
+            // connectButton
             // 
-            this.passwordTb.Enabled = false;
-            this.passwordTb.Location = new System.Drawing.Point(427, 181);
-            this.passwordTb.Name = "passwordTb";
-            this.passwordTb.PasswordChar = '*';
-            this.passwordTb.Size = new System.Drawing.Size(100, 22);
-            this.passwordTb.TabIndex = 11;
-            // 
-            // SsidLabel
-            // 
-            this.SsidLabel.AutoSize = true;
-            this.SsidLabel.Enabled = false;
-            this.SsidLabel.Location = new System.Drawing.Point(424, 147);
-            this.SsidLabel.Name = "SsidLabel";
-            this.SsidLabel.Size = new System.Drawing.Size(0, 17);
-            this.SsidLabel.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(346, 186);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Password:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(346, 147);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 17);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "SSID:";
+            this.connectButton.Enabled = false;
+            this.connectButton.Location = new System.Drawing.Point(342, 219);
+            this.connectButton.Name = "connectButton";
+            this.connectButton.Size = new System.Drawing.Size(105, 23);
+            this.connectButton.TabIndex = 6;
+            this.connectButton.Text = "Connect";
+            this.connectButton.UseVisualStyleBackColor = true;
+            this.connectButton.Click += new System.EventHandler(this.conenctToAp_Click);
             // 
             // cancelButton
             // 
@@ -120,16 +95,41 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // connectButton
+            // label1
             // 
-            this.connectButton.Enabled = false;
-            this.connectButton.Location = new System.Drawing.Point(342, 219);
-            this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(105, 23);
-            this.connectButton.TabIndex = 6;
-            this.connectButton.Text = "Connect";
-            this.connectButton.UseVisualStyleBackColor = true;
-            this.connectButton.Click += new System.EventHandler(this.conenctToAp_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(346, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 17);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "SSID:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(346, 186);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Password:";
+            // 
+            // SsidLabel
+            // 
+            this.SsidLabel.AutoSize = true;
+            this.SsidLabel.Enabled = false;
+            this.SsidLabel.Location = new System.Drawing.Point(424, 147);
+            this.SsidLabel.Name = "SsidLabel";
+            this.SsidLabel.Size = new System.Drawing.Size(0, 17);
+            this.SsidLabel.TabIndex = 10;
+            // 
+            // passwordTb
+            // 
+            this.passwordTb.Enabled = false;
+            this.passwordTb.Location = new System.Drawing.Point(427, 181);
+            this.passwordTb.Name = "passwordTb";
+            this.passwordTb.PasswordChar = '*';
+            this.passwordTb.Size = new System.Drawing.Size(100, 22);
+            this.passwordTb.TabIndex = 11;
             // 
             // ApManager
             // 
@@ -157,11 +157,11 @@
         private System.Windows.Forms.ColumnHeader SignalStr_Column;
         private System.Windows.Forms.Button apSearchButton;
         public System.Windows.Forms.ListView apList;
-        private System.Windows.Forms.TextBox passwordTb;
-        public System.Windows.Forms.Label SsidLabel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label SsidLabel;
+        private System.Windows.Forms.TextBox passwordTb;
     }
 }
