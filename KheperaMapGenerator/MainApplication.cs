@@ -7,17 +7,20 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SimpleWifi;
+using SimpleWifi.Win32;
 
 namespace KheperaMapGenerator
 {
     public partial class MainApplication : Form
     {
 
-        static ApManager wifi = new ApManager();
-        static ClientManager client = new ClientManager();
+        private ApManager wifi;
+
         public MainApplication()
         {
             InitializeComponent();
@@ -63,6 +66,7 @@ namespace KheperaMapGenerator
 
         private void connectApButton_Click(object sender, EventArgs e)
         {
+            wifi = new ApManager();
             wifi.ShowDialog();
 
             if (wifi.connectionStatus == true)
@@ -83,11 +87,6 @@ namespace KheperaMapGenerator
         private void MainApplication_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void connetClientBtn_Click(object sender, EventArgs e)
-        {
-            client.ShowDialog();
         }
     }
 }

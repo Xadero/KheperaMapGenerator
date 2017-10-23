@@ -180,7 +180,7 @@
             // 
             // connectApButton
             // 
-            this.connectApButton.Location = new System.Drawing.Point(44, 51);
+            this.connectApButton.Location = new System.Drawing.Point(44, 71);
             this.connectApButton.Name = "connectApButton";
             this.connectApButton.Size = new System.Drawing.Size(405, 52);
             this.connectApButton.TabIndex = 9;
@@ -191,13 +191,12 @@
             // connetClientBtn
             // 
             this.connetClientBtn.Enabled = false;
-            this.connetClientBtn.Location = new System.Drawing.Point(44, 175);
+            this.connetClientBtn.Location = new System.Drawing.Point(44, 148);
             this.connetClientBtn.Name = "connetClientBtn";
             this.connetClientBtn.Size = new System.Drawing.Size(405, 52);
             this.connetClientBtn.TabIndex = 10;
             this.connetClientBtn.Text = "Connect to client";
             this.connetClientBtn.UseVisualStyleBackColor = true;
-            this.connetClientBtn.Click += new System.EventHandler(this.connetClientBtn_Click);
             // 
             // MainApplication
             // 

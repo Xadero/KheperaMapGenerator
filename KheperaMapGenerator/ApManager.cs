@@ -4,16 +4,24 @@ using SimpleWifi;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
+using System.Net.NetworkInformation;
 
 namespace KheperaMapGenerator
 {
     public partial class ApManager : Form
     {
+
         private static Wifi wifi;
         public int selectedItems;
         public bool connectionStatus = false;
         public ListViewItem selectedItem;
+
         MainApplication mainApplication = new MainApplication();
+        Ping myPing;
+        PingReply pingReply;
+        IPAddress ipAddress;
+        IPHostEntry iPHostEntry;
+        string ip;
 
         public ApManager()
         {
@@ -35,7 +43,7 @@ namespace KheperaMapGenerator
             }
         }
 
-        private void apSearchButton_Click(object sender, EventArgs e)
+        public void apSearchButton_Click(object sender, EventArgs e)
         {
             apList.Items.Clear();
             wifi = new Wifi();
@@ -62,13 +70,13 @@ namespace KheperaMapGenerator
                 {
                     MessageBox.Show("You connected succefully to the network: " + ap.Name);
                     connectionStatus = true;
-                    Dispose(); 
                 }
                 else
                 {
                     MessageBox.Show("Connectio failed");
                 }
                 getNetworkIP();
+
             }
         }
         private bool checAuthRequest(AccessPoint ap, string password)
@@ -78,30 +86,77 @@ namespace KheperaMapGenerator
             return ap.Connect(authRequest);
         }
 
+        public void Disconect(AccessPoint ap, string password)
+        {
+            AuthRequest authRequest = new AuthRequest(ap);
+            authRequest.Password = password;
+            ap.DeleteProfile();
+        }
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            Dispose();
+            Close();
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        public string getNetworkIP()
+        public void getNetworkIP()
         {
-            string ipAddress = string.Empty;
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
             {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)
                 {
-                    MessageBox.Show(ip.ToString());
-                    ipAddress = ip.ToString();
-                    return ip.ToString();
+                    Console.WriteLine(ni.Name);
+                    foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                    {
+                        if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                        {
+                            ip.Address.ToString();
+                            adapterList.Items.Add(new ListViewItem(new String[] { ni.Description, ip.Address.ToString() }));
+                        }
+                    }
                 }
             }
-            return ipAddress;
-            throw new Exception("Local IP Address Not Found!");
+        }
+
+        public void adapterBtn_Click(object sender, EventArgs e)
+        {
+            ListViewItem selectedItem = adapterList.SelectedItems[0];
+            hostlbl.Text = selectedItem.SubItems[0].Text;
+            ip = selectedItem.SubItems[1].Text;
+
+        }
+
+        private void clientSearchButton_Click(object sender, EventArgs e)
+        {
+            string adapterIP = ip.Substring(0, 9);
+            Scan(adapterIP);
+        }
+
+        public void Scan(string subnet)
+        {
+            for (int i = 107; i < 109; i++)
+            {
+                string subnetn = "." + i.ToString();
+                myPing = new Ping();
+                pingReply = myPing.Send(subnet + subnetn);
+
+                if (pingReply.Status == IPStatus.Success)
+                {
+                    try
+                    {
+                        ipAddress = IPAddress.Parse(subnet + subnetn);
+                        iPHostEntry = Dns.GetHostEntry(ipAddress);
+                        clientList.Items.Add(new ListViewItem(new String[] { iPHostEntry.HostName, subnet + subnetn }));
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Couldn't retrive hostname or MAC for " + subnet + subnetn, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
         }
     }
 }

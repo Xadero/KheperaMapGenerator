@@ -25,7 +25,6 @@ C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\Khep
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\Interop.AcroPDFLib.dll
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\AxInterop.AcroPDFLib.dll
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.csproj.ResolveComReference.cache
-C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.ClientManager.resources
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.MainApplication.resources
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.Properties.Resources.resources
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.ApManager.resources
