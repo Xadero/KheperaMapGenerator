@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
+using System.Threading;
 
 namespace KheperaMapGenerator
 {
@@ -15,13 +16,15 @@ namespace KheperaMapGenerator
         public int selectedItems;
         public bool connectionStatus = false;
         public ListViewItem selectedItem;
-
+        public string ip;
         MainApplication mainApplication = new MainApplication();
+
         Ping myPing;
         PingReply pingReply;
         IPAddress ipAddress;
         IPHostEntry iPHostEntry;
-        string ip;
+        string adapterIP;
+
 
         public ApManager()
         {
@@ -34,7 +37,7 @@ namespace KheperaMapGenerator
 
         private void apList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (apList.SelectedItems.Count > 0)
             {
                 connectButton.Enabled = true;
@@ -48,8 +51,8 @@ namespace KheperaMapGenerator
             apList.Items.Clear();
             wifi = new Wifi();
             List<AccessPoint> accessPoints = wifi.GetAccessPoints();
-            
-            foreach(AccessPoint ap in accessPoints)
+
+            foreach (AccessPoint ap in accessPoints)
             {
                 ListViewItem lvItem = new ListViewItem(ap.Name);
                 lvItem.SubItems.Add(ap.SignalStrength + "%");
@@ -129,16 +132,20 @@ namespace KheperaMapGenerator
 
         }
 
-        private void clientSearchButton_Click(object sender, EventArgs e)
+        public void clientSearchButton_Click(object sender, EventArgs e)
         {
+
             string adapterIP = ip.Substring(0, 9);
-            Scan(adapterIP);
+            Thread myNewThread = new Thread(() => Scan(adapterIP));
+            myNewThread.Start();
         }
 
-        public void Scan(string subnet)
+
+        public void Scan (string subnet)
         {
-            for (int i = 107; i < 109; i++)
+            for (int i = 200; i < 241; i++)
             {
+                Thread.Sleep(20);
                 string subnetn = "." + i.ToString();
                 myPing = new Ping();
                 pingReply = myPing.Send(subnet + subnetn);
@@ -147,7 +154,7 @@ namespace KheperaMapGenerator
                 {
                     try
                     {
-                        ipAddress = IPAddress.Parse(subnet + subnetn);
+                        ipAddress = IPAddress.Parse(adapterIP + subnetn);
                         iPHostEntry = Dns.GetHostEntry(ipAddress);
                         clientList.Items.Add(new ListViewItem(new String[] { iPHostEntry.HostName, subnet + subnetn }));
                     }
