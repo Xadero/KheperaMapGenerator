@@ -143,7 +143,7 @@ namespace KheperaMapGenerator
 
         public void Scan (string subnet)
         {
-            for (int i = 200; i < 241; i++)
+            for (int i = 200; i < 241; i++) 
             {
                 Thread.Sleep(20);
                 string subnetn = "." + i.ToString();
