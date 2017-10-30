@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
 using System.Threading;
+using System.ComponentModel;
 
 namespace KheperaMapGenerator
 {
@@ -18,6 +19,7 @@ namespace KheperaMapGenerator
         public ListViewItem selectedItem;
         public string ip;
         MainApplication mainApplication = new MainApplication();
+        BackgroundWorker bgw = new BackgroundWorker();
 
         Ping myPing;
         PingReply pingReply;
@@ -138,14 +140,16 @@ namespace KheperaMapGenerator
             string adapterIP = ip.Substring(0, 9);
             Thread myNewThread = new Thread(() => Scan(adapterIP));
             myNewThread.Start();
+            
+
         }
 
 
         public void Scan (string subnet)
         {
-            for (int i = 200; i < 241; i++) 
+            for (int i = 0; i < 50; i++) 
             {
-                Thread.Sleep(20);
+                Thread.Sleep(100);
                 string subnetn = "." + i.ToString();
                 myPing = new Ping();
                 pingReply = myPing.Send(subnet + subnetn);
@@ -163,7 +167,30 @@ namespace KheperaMapGenerator
                         Console.WriteLine("Couldn't retrive hostname or MAC for " + subnet + subnetn, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+                backgroundWorker1.RunWorkerAsync();
+
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+            for (int i = 0; i <= 255; i++) 
+            {
+                int percents = (i * 100) / 255;
+                backgroundWorker1.ReportProgress(percents, i);
+                Thread.Sleep(100);
+            }
+        }
+
+        void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("Done");
         }
     }
 }

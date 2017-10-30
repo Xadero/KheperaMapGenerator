@@ -49,6 +49,8 @@
             this.clientList = new System.Windows.Forms.ListView();
             this.hostname_Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ip_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // apList
@@ -238,11 +240,19 @@
             this.ip_column.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ip_column.Width = 137;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 728);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(255, 23);
+            this.progressBar1.TabIndex = 22;
+            // 
             // ApManager
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(577, 716);
+            this.ClientSize = new System.Drawing.Size(579, 946);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.connectToClientBtn);
             this.Controls.Add(this.clientSearchButton);
             this.Controls.Add(this.clientList);
@@ -288,5 +298,7 @@
         public System.Windows.Forms.ListView clientList;
         private System.Windows.Forms.ColumnHeader hostname_Column;
         private System.Windows.Forms.ColumnHeader ip_column;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
