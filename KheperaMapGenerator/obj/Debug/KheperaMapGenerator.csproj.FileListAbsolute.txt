@@ -21,7 +21,6 @@ C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\bin\Debug\Khep
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\bin\Debug\SimpleWifi.dll
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\bin\Debug\Interop.AcroPDFLib.dll
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\bin\Debug\AxInterop.AcroPDFLib.dll
-C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.csprojResolveAssemblyReference.cache
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\Interop.AcroPDFLib.dll
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\AxInterop.AcroPDFLib.dll
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.csproj.ResolveComReference.cache

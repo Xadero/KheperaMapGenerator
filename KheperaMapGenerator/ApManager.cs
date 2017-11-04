@@ -20,21 +20,17 @@ namespace KheperaMapGenerator
         public string ip;
         MainApplication mainApplication = new MainApplication();
         BackgroundWorker bgw = new BackgroundWorker();
-
-        Ping myPing;
-        PingReply pingReply;
-        IPAddress ipAddress;
-        IPHostEntry iPHostEntry;
-        string adapterIP;
-
+        Thread myThread = null;
+        private static Form1 scanner = new Form1();
 
         public ApManager()
         {
             InitializeComponent();
+            
         }
         private void ApManager_Load(object sender, EventArgs e)
         {
-
+            //scanner.Hide();
         }
 
         private void apList_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,6 +71,8 @@ namespace KheperaMapGenerator
                 {
                     MessageBox.Show("You connected succefully to the network: " + ap.Name);
                     connectionStatus = true;
+                    adapterBtn.Enabled = true;
+                    adapterList.Enabled = true;
                 }
                 else
                 {
@@ -131,51 +129,56 @@ namespace KheperaMapGenerator
             ListViewItem selectedItem = adapterList.SelectedItems[0];
             hostlbl.Text = selectedItem.SubItems[0].Text;
             ip = selectedItem.SubItems[1].Text;
+            clientSearchButton.Enabled = true;
 
         }
 
         public void clientSearchButton_Click(object sender, EventArgs e)
         {
-
-            string adapterIP = ip.Substring(0, 9);
-            Thread myNewThread = new Thread(() => Scan(adapterIP));
-            myNewThread.Start();
-            
-
+            string adapterIP = ip.Substring(0, 10);
+            scanner.txtIP.Text = adapterIP;
+            scanner.ShowDialog();
+            //myThread = new Thread(() => Scan(adapterIP));
+            //myThread.Start();
         }
 
 
-        public void Scan (string subnet)
-        {
-            for (int i = 0; i < 50; i++) 
-            {
-                Thread.Sleep(100);
-                string subnetn = "." + i.ToString();
-                myPing = new Ping();
-                pingReply = myPing.Send(subnet + subnetn);
+        //public void Scan(string subnet)
+        //{
+        //    Ping myPing;
+        //    PingReply reply;
+        //    IPAddress addr;
+        //    IPHostEntry host;
 
-                if (pingReply.Status == IPStatus.Success)
-                {
-                    try
-                    {
-                        ipAddress = IPAddress.Parse(adapterIP + subnetn);
-                        iPHostEntry = Dns.GetHostEntry(ipAddress);
-                        clientList.Items.Add(new ListViewItem(new String[] { iPHostEntry.HostName, subnet + subnetn }));
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Couldn't retrive hostname or MAC for " + subnet + subnetn, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                backgroundWorker1.RunWorkerAsync();
+        //    progressBar1.Maximum = 254;
+        //    progressBar1.Value = 0;
+        //    listView1.Items.Clear();
 
-            }
-        }
+        //    for (int i = 1; i < 255; i++)
+        //    {
+        //        string subnetn = "." + i.ToString();
+        //        myPing = new Ping();
+        //        reply = myPing.Send(subnet + subnetn);
+
+        //        if (reply.Status == IPStatus.Success)
+        //        {
+        //            try
+        //            {
+        //                addr = IPAddress.Parse(subnet + subnetn);
+        //                host = Dns.GetHostEntry(addr);
+
+        //                listView1.Items.Add(new ListViewItem(new String[] { subnet + subnetn, host.HostName }));
+        //            }
+        //            catch { MessageBox.Show("Couldnt retrieve hostname for " + subnet + subnetn, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        //        }
+        //        progressBar1.Value += 1;
+        //    }
+        //}
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
 
-            for (int i = 0; i <= 255; i++) 
+            for (int i = 0; i <= 255; i++)
             {
                 int percents = (i * 100) / 255;
                 backgroundWorker1.ReportProgress(percents, i);
@@ -185,12 +188,19 @@ namespace KheperaMapGenerator
 
         void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            progressBar1.Value = e.ProgressPercentage;
+            //progressBar1.Value = e.ProgressPercentage;
         }
 
         void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             MessageBox.Show("Done");
+        }
+
+        private void connectToClientBtn_Click(object sender, EventArgs e)
+        {
+            TcpConnection tcpConnection = new TcpConnection();
+            Thread tcpServerRunThread = new Thread(new ThreadStart(tcpConnection.TcpServer));
+            tcpServerRunThread.Start();
         }
     }
 }

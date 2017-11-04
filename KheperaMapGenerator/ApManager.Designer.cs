@@ -44,13 +44,8 @@
             this.adapterName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ipAddr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.adapterBtn = new System.Windows.Forms.Button();
-            this.connectToClientBtn = new System.Windows.Forms.Button();
             this.clientSearchButton = new System.Windows.Forms.Button();
-            this.clientList = new System.Windows.Forms.ListView();
-            this.hostname_Column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ip_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // apList
@@ -147,11 +142,11 @@
             // hostlbl
             // 
             this.hostlbl.AutoSize = true;
+            this.hostlbl.Enabled = false;
             this.hostlbl.Location = new System.Drawing.Point(260, 397);
             this.hostlbl.Name = "hostlbl";
-            this.hostlbl.Size = new System.Drawing.Size(43, 17);
+            this.hostlbl.Size = new System.Drawing.Size(0, 17);
             this.hostlbl.TabIndex = 18;
-            this.hostlbl.Text = "name";
             // 
             // iplbl
             // 
@@ -167,6 +162,7 @@
             this.adapterList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.adapterName,
             this.ipAddr});
+            this.adapterList.Enabled = false;
             this.adapterList.LabelWrap = false;
             this.adapterList.Location = new System.Drawing.Point(12, 277);
             this.adapterList.Name = "adapterList";
@@ -188,6 +184,7 @@
             // 
             // adapterBtn
             // 
+            this.adapterBtn.Enabled = false;
             this.adapterBtn.Location = new System.Drawing.Point(12, 387);
             this.adapterBtn.Name = "adapterBtn";
             this.adapterBtn.Size = new System.Drawing.Size(213, 36);
@@ -196,66 +193,23 @@
             this.adapterBtn.UseVisualStyleBackColor = true;
             this.adapterBtn.Click += new System.EventHandler(this.adapterBtn_Click);
             // 
-            // connectToClientBtn
-            // 
-            this.connectToClientBtn.Enabled = false;
-            this.connectToClientBtn.Location = new System.Drawing.Point(427, 513);
-            this.connectToClientBtn.Name = "connectToClientBtn";
-            this.connectToClientBtn.Size = new System.Drawing.Size(131, 52);
-            this.connectToClientBtn.TabIndex = 21;
-            this.connectToClientBtn.Text = "Connect to client";
-            this.connectToClientBtn.UseVisualStyleBackColor = true;
-            // 
             // clientSearchButton
             // 
-            this.clientSearchButton.Location = new System.Drawing.Point(427, 459);
+            this.clientSearchButton.Enabled = false;
+            this.clientSearchButton.Location = new System.Drawing.Point(12, 445);
             this.clientSearchButton.Name = "clientSearchButton";
-            this.clientSearchButton.Size = new System.Drawing.Size(131, 48);
+            this.clientSearchButton.Size = new System.Drawing.Size(546, 48);
             this.clientSearchButton.TabIndex = 20;
             this.clientSearchButton.Text = "Search Client";
             this.clientSearchButton.UseVisualStyleBackColor = true;
             this.clientSearchButton.Click += new System.EventHandler(this.clientSearchButton_Click);
             // 
-            // clientList
-            // 
-            this.clientList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.hostname_Column,
-            this.ip_column});
-            this.clientList.GridLines = true;
-            this.clientList.Location = new System.Drawing.Point(12, 459);
-            this.clientList.Name = "clientList";
-            this.clientList.Size = new System.Drawing.Size(405, 245);
-            this.clientList.TabIndex = 19;
-            this.clientList.UseCompatibleStateImageBehavior = false;
-            this.clientList.View = System.Windows.Forms.View.Details;
-            // 
-            // hostname_Column
-            // 
-            this.hostname_Column.Text = "Hostname";
-            this.hostname_Column.Width = 104;
-            // 
-            // ip_column
-            // 
-            this.ip_column.Text = "IP";
-            this.ip_column.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ip_column.Width = 137;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 728);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(255, 23);
-            this.progressBar1.TabIndex = 22;
-            // 
             // ApManager
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(579, 946);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.connectToClientBtn);
+            this.ClientSize = new System.Drawing.Size(579, 502);
             this.Controls.Add(this.clientSearchButton);
-            this.Controls.Add(this.clientList);
             this.Controls.Add(this.hostlbl);
             this.Controls.Add(this.iplbl);
             this.Controls.Add(this.adapterList);
@@ -293,12 +247,7 @@
         private System.Windows.Forms.ColumnHeader adapterName;
         private System.Windows.Forms.ColumnHeader ipAddr;
         private System.Windows.Forms.Button adapterBtn;
-        private System.Windows.Forms.Button connectToClientBtn;
         private System.Windows.Forms.Button clientSearchButton;
-        public System.Windows.Forms.ListView clientList;
-        private System.Windows.Forms.ColumnHeader hostname_Column;
-        private System.Windows.Forms.ColumnHeader ip_column;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

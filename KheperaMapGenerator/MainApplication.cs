@@ -19,7 +19,8 @@ namespace KheperaMapGenerator
     public partial class MainApplication : Form
     {
 
-        private ApManager wifi;
+        private static ApManager wifi;
+        private static Form1 scanner;
 
         public MainApplication()
         {
@@ -68,6 +69,9 @@ namespace KheperaMapGenerator
         {
             wifi = new ApManager();
             wifi.ShowDialog();
+            scanner = new Form1();
+            //scanner.Show();
+            
 
             if (wifi.connectionStatus == true)
             {
