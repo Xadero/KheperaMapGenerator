@@ -31,3 +31,4 @@ C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\Khep
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.csproj.CoreCompileInputs.cache
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.exe
 C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.pdb
+C:\Users\Gumiś\Documents\KheperaMapGenerator\KheperaMapGenerator\obj\Debug\KheperaMapGenerator.NetworkScanner.resources

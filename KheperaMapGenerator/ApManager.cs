@@ -163,8 +163,9 @@ namespace KheperaMapGenerator
 
         private void connectToClientBtn_Click(object sender, EventArgs e)
         {
+            
             TcpConnection tcpConnection = new TcpConnection();
-            Thread tcpServerRunThread = new Thread(() => tcpConnection.TcpServer(ip));
+            Thread tcpServerRunThread = new Thread( () => tcpConnection.TcpServer(IPAddress.Parse(ip)));
             tcpServerRunThread.Start();
         }
     }

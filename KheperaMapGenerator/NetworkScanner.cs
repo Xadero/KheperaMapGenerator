@@ -91,73 +91,25 @@ namespace KheperaMapGenerator
             txtIP.Enabled = true;
             lblStatus.ForeColor = System.Drawing.Color.Red;
             lblStatus.Text = "Idle";
-        }
-
-        private void listVAddr_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtIP_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void conMenuStripIP_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
+        }   
 
         private void connectToClient_Click(object sender, EventArgs e)
         {
             ListViewItem selectedItem = listVAddr.SelectedItems[0];
             string ip = selectedItem.SubItems[0].Text;
             TcpConnection tcpConnection = new TcpConnection();
-            tcpConnection.TcpServer(ip);
+            tcpConnection.TcpServer(IPAddress.Parse(ip));
 
             main.startRobot.Enabled = true;
+            Hide(); 
+        }
 
-            
+        private void listVAddr_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (listVAddr.SelectedItems.Count > 0)
+            {
+                connectToClient.Enabled = true;
+            }
         }
     }
 }

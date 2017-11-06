@@ -69,15 +69,6 @@ namespace KheperaMapGenerator
         {
             wifi = new ApManager();
             wifi.ShowDialog();
-
-            if (wifi.connectionStatus == true)
-            {
-                UpArrow.Enabled = true;
-                LeftArrow.Enabled = true;
-                DownArrow.Enabled = true;
-                RightArrow.Enabled = true;
-                startRobot.Enabled = true;
-            }
         }
 
         private void generatedMap_Click(object sender, EventArgs e)
@@ -88,6 +79,17 @@ namespace KheperaMapGenerator
         private void MainApplication_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void startRobot_Click(object sender, EventArgs e)
+        {
+            UpArrow.Enabled = true;
+            DownArrow.Enabled = true;
+            LeftArrow.Enabled = true;
+            RightArrow.Enabled = true;
+
+            MoveRobot moveRobot = new MoveRobot();
+            moveRobot.Movement();
         }
     }
 }

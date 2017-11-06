@@ -6,15 +6,15 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
+using System.Windows.Forms;
 
 namespace KheperaMapGenerator
 {
     public class TcpConnection
     {
-
-        public void TcpServer(string ip)
+        public void TcpServer(IPAddress ip)
         {
-            TcpListener tcpListener = new TcpListener(IPAddress.Parse(ip), 5004);
+            TcpListener tcpListener = new TcpListener(IPAddress.Any, 5004);
             tcpListener.Start();
 
             while (true)

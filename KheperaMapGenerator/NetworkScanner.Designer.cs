@@ -183,9 +183,11 @@
             this.listVAddr.TabIndex = 5;
             this.listVAddr.UseCompatibleStateImageBehavior = false;
             this.listVAddr.View = System.Windows.Forms.View.Details;
+            this.listVAddr.SelectedIndexChanged += new System.EventHandler(this.listVAddr_SelectedIndexChanged_1);
             // 
             // connectToClient
             // 
+            this.connectToClient.Enabled = false;
             this.connectToClient.Location = new System.Drawing.Point(19, 378);
             this.connectToClient.Name = "connectToClient";
             this.connectToClient.Size = new System.Drawing.Size(423, 64);
@@ -229,8 +231,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button cmdScan;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ListView listVAddr;
         public System.Windows.Forms.TextBox txtIP;
         private System.Windows.Forms.Button connectToClient;
+        public System.Windows.Forms.ListView listVAddr;
     }
 }

@@ -197,6 +197,7 @@
             this.startRobot.TabIndex = 10;
             this.startRobot.Text = "Start robot";
             this.startRobot.UseVisualStyleBackColor = true;
+            this.startRobot.Click += new System.EventHandler(this.startRobot_Click);
             // 
             // MainApplication
             // 

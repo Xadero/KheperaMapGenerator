@@ -30,6 +30,7 @@ namespace KheperaMapGenerator
                 case Keys.Right:
                     main.RightArrow.PerformClick();
                     break;
+
                 default:
                     break;
             }
