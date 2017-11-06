@@ -12,9 +12,9 @@ namespace KheperaMapGenerator
     public class TcpConnection
     {
 
-        public void TcpServer()
+        public void TcpServer(string ip)
         {
-            TcpListener tcpListener = new TcpListener(IPAddress.Any, 5004);
+            TcpListener tcpListener = new TcpListener(IPAddress.Parse(ip), 5004);
             tcpListener.Start();
 
             while (true)

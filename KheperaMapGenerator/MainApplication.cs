@@ -20,7 +20,7 @@ namespace KheperaMapGenerator
     {
 
         private static ApManager wifi;
-        private static Form1 scanner;
+        private static NetworkScanner scanner;
 
         public MainApplication()
         {
@@ -69,9 +69,6 @@ namespace KheperaMapGenerator
         {
             wifi = new ApManager();
             wifi.ShowDialog();
-            scanner = new Form1();
-            //scanner.Show();
-            
 
             if (wifi.connectionStatus == true)
             {
@@ -79,7 +76,7 @@ namespace KheperaMapGenerator
                 LeftArrow.Enabled = true;
                 DownArrow.Enabled = true;
                 RightArrow.Enabled = true;
-                connetClientBtn.Enabled = true;
+                startRobot.Enabled = true;
             }
         }
 

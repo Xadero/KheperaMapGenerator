@@ -1,6 +1,6 @@
 ﻿namespace KheperaMapGenerator
 {
-    partial class Form1
+    partial class NetworkScanner
     {
         /// <summary>
         /// Required designer variable.
@@ -42,10 +42,9 @@
             this.cmdStop = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmdScan = new System.Windows.Forms.Button();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listVAddr = new System.Windows.Forms.ListView();
+            this.connectToClient = new System.Windows.Forms.Button();
             this.conMenuStripIP.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -168,16 +167,6 @@
             this.cmdScan.UseVisualStyleBackColor = true;
             this.cmdScan.Click += new System.EventHandler(this.cmdScan_Click);
             // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Status";
-            this.columnHeader3.Width = 50;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Hostname";
-            this.columnHeader2.Width = 180;
-            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "IP";
@@ -186,9 +175,7 @@
             // listVAddr
             // 
             this.listVAddr.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader1});
             this.listVAddr.Location = new System.Drawing.Point(13, 13);
             this.listVAddr.Margin = new System.Windows.Forms.Padding(4);
             this.listVAddr.Name = "listVAddr";
@@ -197,15 +184,26 @@
             this.listVAddr.UseCompatibleStateImageBehavior = false;
             this.listVAddr.View = System.Windows.Forms.View.Details;
             // 
-            // Form1
+            // connectToClient
+            // 
+            this.connectToClient.Location = new System.Drawing.Point(19, 378);
+            this.connectToClient.Name = "connectToClient";
+            this.connectToClient.Size = new System.Drawing.Size(423, 64);
+            this.connectToClient.TabIndex = 9;
+            this.connectToClient.Text = "Connect to client by TCP protocol";
+            this.connectToClient.UseVisualStyleBackColor = true;
+            this.connectToClient.Click += new System.EventHandler(this.connectToClient_Click);
+            // 
+            // NetworkScanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 454);
+            this.ClientSize = new System.Drawing.Size(464, 454);
+            this.Controls.Add(this.connectToClient);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listVAddr);
-            this.Name = "Form1";
+            this.Name = "NetworkScanner";
             this.Text = "Form1";
             this.conMenuStripIP.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -230,10 +228,9 @@
         private System.Windows.Forms.Button cmdStop;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button cmdScan;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ListView listVAddr;
         public System.Windows.Forms.TextBox txtIP;
+        private System.Windows.Forms.Button connectToClient;
     }
 }

@@ -50,11 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Export\ExportMapToFile.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MoveRobot.cs" />
+    <Compile Include="NetworkScanner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="NetworkScanner.Designer.cs">
+      <DependentUpon>NetworkScanner.cs</DependentUpon>
     </Compile>
     <Compile Include="MainApplication.cs">
       <SubType>Form</SubType>
@@ -71,8 +72,8 @@
       <DependentUpon>ApManager.cs</DependentUpon>
     </Compile>
     <Compile Include="TcpConnection.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="NetworkScanner.resx">
+      <DependentUpon>NetworkScanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainApplication.resx">
       <DependentUpon>MainApplication.cs</DependentUpon>

@@ -43,7 +43,7 @@
             this.DownArrow = new System.Windows.Forms.Button();
             this.LeftArrow = new System.Windows.Forms.Button();
             this.connectApButton = new System.Windows.Forms.Button();
-            this.connetClientBtn = new System.Windows.Forms.Button();
+            this.startRobot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.generatedMap)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -188,15 +188,15 @@
             this.connectApButton.UseVisualStyleBackColor = true;
             this.connectApButton.Click += new System.EventHandler(this.connectApButton_Click);
             // 
-            // connetClientBtn
+            // startRobot
             // 
-            this.connetClientBtn.Enabled = false;
-            this.connetClientBtn.Location = new System.Drawing.Point(44, 148);
-            this.connetClientBtn.Name = "connetClientBtn";
-            this.connetClientBtn.Size = new System.Drawing.Size(405, 52);
-            this.connetClientBtn.TabIndex = 10;
-            this.connetClientBtn.Text = "Connect to client";
-            this.connetClientBtn.UseVisualStyleBackColor = true;
+            this.startRobot.Enabled = false;
+            this.startRobot.Location = new System.Drawing.Point(44, 148);
+            this.startRobot.Name = "startRobot";
+            this.startRobot.Size = new System.Drawing.Size(405, 52);
+            this.startRobot.TabIndex = 10;
+            this.startRobot.Text = "Start robot";
+            this.startRobot.UseVisualStyleBackColor = true;
             // 
             // MainApplication
             // 
@@ -205,7 +205,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1002, 717);
-            this.Controls.Add(this.connetClientBtn);
+            this.Controls.Add(this.startRobot);
             this.Controls.Add(this.connectApButton);
             this.Controls.Add(this.LeftArrow);
             this.Controls.Add(this.DownArrow);
@@ -248,7 +248,7 @@
         public System.Windows.Forms.Button RightArrow;
         public System.Windows.Forms.Button DownArrow;
         public System.Windows.Forms.Button LeftArrow;
-        public System.Windows.Forms.Button connetClientBtn;
+        public System.Windows.Forms.Button startRobot;
     }
 }
 

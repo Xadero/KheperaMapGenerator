@@ -8,9 +8,10 @@ using System.Management;
 
 namespace KheperaMapGenerator
 {
-    public partial class Form1 : Form
+    public partial class NetworkScanner : Form
     {
-        public Form1()
+        MainApplication main = new MainApplication();
+        public NetworkScanner()
         {
             InitializeComponent();
 
@@ -46,9 +47,9 @@ namespace KheperaMapGenerator
                     try
                     {
                         addr = IPAddress.Parse(subnet + subnetn);
-                        host = Dns.GetHostEntry(addr);
+                        //host = Dns.GetHostEntry(addr);
 
-                        listVAddr.Items.Add(new ListViewItem(new String[] { subnet + subnetn, host.HostName, "Up" }));
+                        listVAddr.Items.Add(new ListViewItem(new String[] { subnet + subnetn }));
                     }
                     catch { MessageBox.Show("Couldnt retrieve hostname for " + subnet + subnetn, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
@@ -145,6 +146,18 @@ namespace KheperaMapGenerator
         private void conMenuStripIP_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
+        }
+
+        private void connectToClient_Click(object sender, EventArgs e)
+        {
+            ListViewItem selectedItem = listVAddr.SelectedItems[0];
+            string ip = selectedItem.SubItems[0].Text;
+            TcpConnection tcpConnection = new TcpConnection();
+            tcpConnection.TcpServer(ip);
+
+            main.startRobot.Enabled = true;
+
+            
         }
     }
 }
