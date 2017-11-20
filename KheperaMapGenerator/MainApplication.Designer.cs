@@ -44,6 +44,7 @@
             this.LeftArrow = new System.Windows.Forms.Button();
             this.connectApButton = new System.Windows.Forms.Button();
             this.startRobot = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.generatedMap)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -191,13 +192,23 @@
             // startRobot
             // 
             this.startRobot.Enabled = false;
-            this.startRobot.Location = new System.Drawing.Point(44, 148);
+            this.startRobot.Location = new System.Drawing.Point(44, 189);
             this.startRobot.Name = "startRobot";
             this.startRobot.Size = new System.Drawing.Size(405, 52);
             this.startRobot.TabIndex = 10;
             this.startRobot.Text = "Start robot";
             this.startRobot.UseVisualStyleBackColor = true;
             this.startRobot.Click += new System.EventHandler(this.startRobot_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(44, 129);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(405, 54);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Start server";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainApplication
             // 
@@ -206,6 +217,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1002, 717);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.startRobot);
             this.Controls.Add(this.connectApButton);
             this.Controls.Add(this.LeftArrow);
@@ -250,6 +262,7 @@
         public System.Windows.Forms.Button DownArrow;
         public System.Windows.Forms.Button LeftArrow;
         public System.Windows.Forms.Button startRobot;
+        private System.Windows.Forms.Button button2;
     }
 }
 

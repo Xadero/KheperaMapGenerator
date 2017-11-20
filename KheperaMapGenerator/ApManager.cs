@@ -127,10 +127,17 @@ namespace KheperaMapGenerator
         public void adapterBtn_Click(object sender, EventArgs e)
         {
             ListViewItem selectedItem = adapterList.SelectedItems[0];
-            hostlbl.Text = selectedItem.SubItems[0].Text;
-            ip = selectedItem.SubItems[1].Text;
-            clientSearchButton.Enabled = true;
-
+            if(selectedItem == null)
+            {
+                MessageBox.Show("Select network adapter");
+            }
+            else
+            {
+                hostlbl.Text = selectedItem.SubItems[0].Text;
+                ip = selectedItem.SubItems[1].Text;
+                clientSearchButton.Enabled = true;
+                Hide();
+            }
         }
 
         public void clientSearchButton_Click(object sender, EventArgs e)
@@ -138,6 +145,7 @@ namespace KheperaMapGenerator
             string adapterIP = ip.Substring(0, 9);
             scanner.txtIP.Text = adapterIP;
             scanner.ShowDialog();
+            Hide();
         }
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -165,7 +173,7 @@ namespace KheperaMapGenerator
         {
             
             TcpConnection tcpConnection = new TcpConnection();
-            Thread tcpServerRunThread = new Thread( () => tcpConnection.TcpServer(IPAddress.Parse(ip)));
+            Thread tcpServerRunThread = new Thread( () => tcpConnection.TcpServer());
             tcpServerRunThread.Start();
         }
     }

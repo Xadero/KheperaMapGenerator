@@ -12,16 +12,23 @@ namespace KheperaMapGenerator
 {
     public class TcpConnection
     {
-        public void TcpServer(IPAddress ip)
+        public TcpClient client;
+        public void TcpServer()
         {
             TcpListener tcpListener = new TcpListener(IPAddress.Any, 5004);
             tcpListener.Start();
 
             while (true)
             {
-                TcpClient client = tcpListener.AcceptTcpClient();
+                client = tcpListener.AcceptTcpClient();
                 Thread tcpHandlerThread = new Thread(new ParameterizedThreadStart(tcpHandler));
                 tcpHandlerThread.Start(client);
+                if (client.Connected)
+                {
+                    MainApplication mainApplication = new MainApplication();
+                    mainApplication.startRobot.Enabled = true;
+                    break;
+                }
             }
         }
 

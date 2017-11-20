@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SimpleWifi;
 using SimpleWifi.Win32;
+using System.Net;
+using System.Threading;
+using System.Net.Sockets;
 
 namespace KheperaMapGenerator
 {
@@ -90,6 +93,18 @@ namespace KheperaMapGenerator
 
             MoveRobot moveRobot = new MoveRobot();
             moveRobot.Movement();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TcpConnection tcpConnection = new TcpConnection();
+            tcpConnection.TcpServer();
+            if (tcpConnection.client.Connected)
+            {
+                MainApplication main = new MainApplication();
+                main.startRobot.Enabled = true;
+            }
+            //Thread thread = new Thread(tcpConnection.TcpServer);
         }
     }
 }

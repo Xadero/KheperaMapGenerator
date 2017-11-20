@@ -47,8 +47,6 @@ namespace KheperaMapGenerator
                     try
                     {
                         addr = IPAddress.Parse(subnet + subnetn);
-                        //host = Dns.GetHostEntry(addr);
-
                         listVAddr.Items.Add(new ListViewItem(new String[] { subnet + subnetn }));
                     }
                     catch { MessageBox.Show("Couldnt retrieve hostname for " + subnet + subnetn, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -98,7 +96,7 @@ namespace KheperaMapGenerator
             ListViewItem selectedItem = listVAddr.SelectedItems[0];
             string ip = selectedItem.SubItems[0].Text;
             TcpConnection tcpConnection = new TcpConnection();
-            tcpConnection.TcpServer(IPAddress.Parse(ip));
+            tcpConnection.TcpServer();
 
             main.startRobot.Enabled = true;
             Hide(); 
